@@ -17,6 +17,7 @@ RUN apk add --no-cache jq
 RUN apk add --no-cache iftop
 RUN apk add --no-cache grep
 RUN apk add --no-cache openssh-client
+RUN apk add --no-cache tree
 
 RUN rm -rf /var/cache/apk/*
 
