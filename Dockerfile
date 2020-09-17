@@ -1,26 +1,28 @@
 FROM alpine:3.10
 
-LABEL maintainer="michael@cramer.name"
+LABEL maintainer="mjcramer@gmail.com"
 
-RUN apk add --no-cache ca-certificates
-RUN apk add --no-cache mtr
-RUN apk add --no-cache netcat-openbsd
-RUN apk add --no-cache wget
-RUN apk add --no-cache curl
-RUN apk add --no-cache bash
-RUN apk add --no-cache bash-completion
-RUN apk add --no-cache htop
-RUN apk add --no-cache tcpdump
-RUN apk add --no-cache nmap
-RUN apk add --no-cache iperf
-RUN apk add --no-cache jq
-RUN apk add --no-cache iftop
-RUN apk add --no-cache grep
-RUN apk add --no-cache openssh-client
-RUN apk add --no-cache tree
+RUN apk add --no-cache \
+  ca-certificates \
+  mtr \
+  netcat-openbsd \
+  wget \
+  curl \
+  bash \
+  bash-completion \
+  htop \
+  tcpdump \
+  nmap \
+  iperf \
+  jq \
+  iftop \
+  grep \
+  openssh-client \
+  tree
 
 RUN rm -rf /var/cache/apk/*
 
 ADD bashrc /root/.bashrc
 
-ENTRYPOINT /bin/bash
+ENTRYPOINT [ "/bin/bash", "-c" ]
+
