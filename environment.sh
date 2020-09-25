@@ -1,5 +1,16 @@
 #!/usr/bin/env bash
 
 printenv
+echo START
+echo -n ${TERRAFORM_ENCRYPTION_KEY}
+echo 1
+echo ${TERRAFORM_ENCRYPTION_KEY}
+echo 2
+echo "${TERRAFORM_ENCRYPTION_KEY}"
+echo 3
 echo -n $TERRAFORM_ENCRYPTION_KEY
-
+echo 4
+echo $TERRAFORM_ENCRYPTION_KEY
+echo 5
+echo "$TERRAFORM_ENCRYPTION_KEY"
+echo END
