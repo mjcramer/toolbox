@@ -1,4 +1,4 @@
-FROM alpine:3.10
+FROM alpine:3.12
 
 LABEL maintainer="mjcramer@gmail.com"
 
@@ -13,6 +13,7 @@ RUN apk add --no-cache \
   htop \
   tcpdump \
   nmap \
+  bind-tools \
   iperf \
   jq \
   iftop \
