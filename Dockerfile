@@ -1,25 +1,52 @@
-FROM alpine:3.12
+FROM alpine:3.13.2
 
 LABEL maintainer="mjcramer@gmail.com"
 
 RUN apk add --no-cache \
-  ca-certificates \
-  mtr \
-  netcat-openbsd \
-  wget \
-  curl \
-  bash \
-  bash-completion \
-  htop \
-  tcpdump \
-  nmap \
-  bind-tools \
-  iperf \
-  jq \
-  iftop \
-  grep \
-  openssh-client \
-  tree
+    apache2-utils \
+    bash \
+    bash-completion \
+    bind-tools \
+    bridge-utils \
+    busybox-extras \
+    ca-certificates \
+    conntrack-tools \
+    curl \
+    dhcping \
+    drill \
+    ethtool \
+    file \
+    fping \
+    grep \
+    htop \
+    httpie \
+    iftop \
+    iperf \
+    iproute2 \
+    ipset \
+    iptables \
+    iptraf-ng \
+    iputils \
+    ipvsadm \
+    jq \
+    mtr \
+    net-snmp-tools \
+    netcat-openbsd \
+    nmap \
+    nmap-nping \
+    openssh-client \
+    openssl \
+    scapy \
+    socat \
+    strace \
+    tcpdump \
+    tcpdump \
+    tcptraceroute \
+    tree \
+    tshark \
+    util-linux \
+    vim \
+    wget
 
 RUN rm -rf /var/cache/apk/*
 

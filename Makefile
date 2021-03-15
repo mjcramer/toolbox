@@ -2,7 +2,6 @@
 DOCKER_REPOSITORY := mjcramer/toolbox
 DOCKER_TAG := $(shell git describe --tags)
 
-
 #
 # Pre-checks
 #
@@ -25,27 +24,17 @@ check:
 	$(DOCKER_EXISTS)
 
 build: check
-	@echo ${DOCKER_REPOSITORY}
 	@echo "Building docker image $(DOCKER_REPOSITORY):$(DOCKER_TAG)..."
-	docker build --tag $(DOCKER_REPOSITORY):$(DOCKER_TAG) .
+	@docker build --tag $(DOCKER_REPOSITORY):$(DOCKER_TAG) .
 
 run:
-	docker run --rm --name $(DOCKER_INSTANCE) -it $(DOCKER_IMAGE):$(DOCKER_TAG)
-
-# stop:
-# 	docker stop $(DOCKER_INSTANCE)
-# 	docker rm $(DOCKER_INSTANCE)
-#
-# shutdown:
-# 	docker stop $$(docker ps -a -q)
-# 	docker rm $$(docker ps -a -q)
-# 	docker-machine stop $(DOCKER_MACHINE)
+	@docker run --rm --interactive --tty --entrypoint bash $(DOCKER_REPOSITORY):$(DOCKER_TAG)
 
 tag:
 ifdef (DOCKER_REGISTRY)
-	docker tag $(DOCKER_IMAGE):$(DOCKER_TAG) $(DOCKER_REGISTRY)/$(DOCKER_REPOSITORY):$(DOCKER_TAG)
+	@docker tag $(DOCKER_IMAGE):$(DOCKER_TAG) $(DOCKER_REGISTRY)/$(DOCKER_REPOSITORY):$(DOCKER_TAG)
 else
-	docker tag $(DOCKER_IMAGE):$(DOCKER_TAG) $(DOCKER_REPOSITORY):$(DOCKER_TAG)
+	@docker tag $(DOCKER_IMAGE):$(DOCKER_TAG) $(DOCKER_REPOSITORY):$(DOCKER_TAG)
 endif
 
 push: tag
@@ -63,3 +52,4 @@ shell:
 
 clean:
 	docker rm $(shell docker ps -a -q)
+
