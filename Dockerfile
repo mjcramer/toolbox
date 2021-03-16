@@ -56,5 +56,5 @@ ADD bashrc /root/.bashrc
 ADD environment.sh /root/environment.sh
 RUN chmod 755 /root/environment.sh
 
-ENTRYPOINT [ "/bin/bash", "-c" ]
+ENTRYPOINT [ "/bin/bash" ]
 
