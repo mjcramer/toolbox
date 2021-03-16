@@ -36,6 +36,7 @@ RUN apk add --no-cache \
     nmap-nping \
     openssh-client \
     openssl \
+    postgresql \
     scapy \
     socat \
     strace \
